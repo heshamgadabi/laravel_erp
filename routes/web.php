@@ -7,6 +7,7 @@ use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\OfficeController;
 use App\Models\Flight;
 use App\Http\Controllers\BillController as ControllersBillController;
+use App\Http\Controllers\CoursesController;
 
 Route::get('/', function () {
     return view('home');
@@ -67,3 +68,5 @@ Route::get('/office/final/{id?}/delete',[OfficeController::class,'final_delete']
 
 Route::resource('bill', ControllersBillController::class);
 
+
+Route::get('courses', [CoursesController::class,'index'])->name('courses.index');
