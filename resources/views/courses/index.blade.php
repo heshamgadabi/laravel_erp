@@ -7,39 +7,81 @@ Courses Admin
 @section('content')
 <!-- Main content -->       
 
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
+<div class="content">
+    <div class="container-fluid">
+
+
+
+      <div class="row">
+          <div class="col-12">
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>          
+              <div class="card-header">
+                <h3 class="card-title">Courses Data 
+                  <a href="{{ route('courses.create') }}" class="btn btn-primary float-right">Add New Course</a>
+                
+                </h3>
+                
+                @if(session('success'))
+                  <div class="clearfix"></div>
+                  
+                  <div class="alert alert-success mt-2">
+                    {{ session('success') }}
+                  </div>
+                @endif
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.  
-                </p>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-                </div>  
-            </div>
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>  
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a> 
-
-                <a href="#" class="card-link">Another link</a>
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-            </div><!-- /.card -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" >
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Status</th>
+                      <th>Update</th>
+                      <th>Created</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($courses as $course)
+
+                    <tr>
+                      <td>{{ $course->id }}</td>
+                      <td>{{ $course->name }}</td>
+                      <td>{{ $course->active ? 'Active' : 'Inactive' }}</td>
+                      <td>{{ $course->updated_at }}</td>
+                      <td>{{ $course->created_at }}</td>
+                    </tr>
+                  @endforeach
+                  
+                  
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
-        </div>
-        </div>
+      </div>
+      <!-- /.row -->
+
+
+    </div>
+
+      
+
+
     </div>
 </div>
     <!-- /.content -->    
@@ -55,12 +97,12 @@ Courses Admin
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Cart Page</h1>
+            <h1 class="m-0">Admin Courses Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+              <li class="breadcrumb-item active">Admin Courses Page</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

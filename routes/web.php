@@ -11,7 +11,7 @@ use App\Http\Controllers\CoursesController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/cart', function () {
     return view('cart');
@@ -70,3 +70,7 @@ Route::resource('bill', ControllersBillController::class);
 
 
 Route::get('courses', [CoursesController::class,'index'])->name('courses.index');
+
+Route::get('courses/create', [CoursesController::class,'create'])->name('courses.create');
+
+Route::post('courses/store', [CoursesController::class,'store'])->name('courses.store');
