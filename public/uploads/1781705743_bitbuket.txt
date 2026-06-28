@@ -1,0 +1,24 @@
+ssh-keygen -t ed25519 -C "h.gadabi@oreed.org"
+
+
+
+SHA256:Jxz0n1GUEL7XMxU34CKoKDz/M+R0NDwFi83F8A//IjI h.gadabi@oreed.org
+
+
+
+git clone h.gadabi@oreed.org:vmacademy2020/old-vma-system.git
+
+
+git commit -m "Old System First"
+
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINu7mdw+oZuR8nnFHHDaponYG8u4twtXWQ+2dsSbPaSO h.gadabi@oreed.org
+
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINu7mdw+oZuR8nnFHHDaponYG8u4twtXWQ+2dsSbPaSO h.gadabi@oreed.org
+
+
+
+git remote add bitbucket git@bitbucket.org:vmacademy2020/old-vma-system.git
+
+git clone git@bitbucket.org:vmacademy2020/old-vma-system.git

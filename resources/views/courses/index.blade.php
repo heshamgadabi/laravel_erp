@@ -51,6 +51,7 @@ Courses Admin
                       <th>Status</th>
                       <th>Update</th>
                       <th>Created</th>
+                      <th>Settings</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -62,6 +63,16 @@ Courses Admin
                       <td>{{ $course->active ? 'Active' : 'Inactive' }}</td>
                       <td>{{ $course->updated_at }}</td>
                       <td>{{ $course->created_at }}</td>
+                      <td>
+                        <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <!--form action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display: inline-block;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this course?')">Delete</button>
+                        </form-->
+
+                        <a href="{{ route('courses.delete', $course->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this course?')">Delete</a>
+                        
                     </tr>
                   @endforeach
                   
